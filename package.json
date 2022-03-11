@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testd": "echo \"Error: no test specified\" && exit 1",
+    "testr": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open --config watchForFileChanges=true DEBUG=cypress:*",
     "test": "cypress run --headless --browser chrome"
   },
