@@ -25,7 +25,7 @@ describe('Dashboard', function(){
         })
         cy.get('#autocomplete').should('have.value','Indonesia')
 
-        //visible/invisible elements
+        //visible-invisible elements
 
         cy.get('#displayed-text').should('be.visible')
         cy.get('#hide-textbox').click()
