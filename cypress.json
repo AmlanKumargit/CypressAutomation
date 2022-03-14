@@ -4,7 +4,7 @@
     "numTestsKeptInMemory": 0, 
     "responseTimeout": 500000,
     "pageLoadTimeout": 500000, 
-    "baseUrl": "http://geekyants-login.geekydev.com/home", 
+    "baseUrl": "http://geekyants-login.geekydev.com", 
     "chromeWebSecurity": false,
     "watchForFileChanges": true, 
     "viewportHeight": 1259, 
