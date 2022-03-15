@@ -1,7 +1,7 @@
 {
 
     "requestTimeout": 500000, 
-    "numTestsKeptInMemory": 0, 
+    "numTestsKeptInMemory": 10, 
     "responseTimeout": 500000,
     "pageLoadTimeout": 500000, 
     "baseUrl": "http://geekyants-login.geekydev.com", 
