@@ -2,7 +2,7 @@
 
 describe('Dashboard', function(){
 
-    it('check-uncheck-check', function(){
+    it('mousehover', function(){
 
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
        // cy.get('.mouse-hover-content').invoke('show')
