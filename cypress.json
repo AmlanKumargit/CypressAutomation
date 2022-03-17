@@ -8,5 +8,6 @@
     "chromeWebSecurity": false,
     "watchForFileChanges": true, 
     "viewportHeight": 1259, 
-    "viewportWidth": 1200
+    "viewportWidth": 1200,
+    "defaultCommandTimeout": 8000
 }
