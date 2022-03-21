@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import HomePage from '../integration/PageObjects/HomePage.js'
-import ProductsPage from '../integration/PageObjects/ProductsPage'
+import HomePage from '../../cypress/support/PageObjects/HomePage.js'
+import ProductsPage from '../../cypress/support/PageObjects/ProductsPage.js'
 
 describe('Dashboard', function(){
 
@@ -17,7 +17,7 @@ describe('Dashboard', function(){
 
         const h= new HomePage()  
         const p= new ProductsPage()      
-        cy.visit('https://rahulshettyacademy.com/angularpractice/')
+        cy.visit(Cypress.env('url'))
         h.getEditBox().type(this.data.name)
         h.getGender().select(this.data.gender)
         h.getTwowayDatabinding().should('have.value',this.data.name)
