@@ -14,6 +14,7 @@
     "env":
         {
             "url": "https://rahulshettyacademy.com/angularpractice/"
-        },
+        },   
+    "testFiles": "**/*.feature",
     "projectId": "dpy2t7"
 }
