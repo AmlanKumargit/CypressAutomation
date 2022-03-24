@@ -23,6 +23,7 @@
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-iframe": "^1.0.1",
     "mochawesome": "^7.1.2",
-    "multiple-cucumber-html-reporter": "^1.19.0"
+    "multiple-cucumber-html-reporter": "^1.19.0",
+    "neat-csv":"5.1.0"
   }
 }
