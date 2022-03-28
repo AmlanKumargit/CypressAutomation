@@ -28,6 +28,13 @@ Cypress.Commands.add('selectProduct', (productName) => {
          })
      })
 
+Cypress.Commands.add('SignIn',(phone ,password)=>{
+        cy.get('#ap_email').type(phone)
+        cy.get('#continue').click()
+        cy.get('#ap_password').type(password)
+        cy.get('#signInSubmit').click()
+        })
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
