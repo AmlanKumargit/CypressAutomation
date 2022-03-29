@@ -20,6 +20,10 @@ class HomePage
     {
         return cy.get(':nth-child(2) > .nav-link')
     }
+    getAddrbtn()
+    {
+        return cy.get('#address-ui-widgets-form-submit-button > .a-button-inner > .a-button-input')
+    }
 
 }
 export default HomePage;
