@@ -9,6 +9,8 @@ declare namespace Cypress {
          * @example cy.dataCy('greeting')
          */
          SignIn(phone: string, password:string): Chainable<Element>
+         selectProd(): Chainable<Element>
+         removeProd(): Chainable<Element>
       }
     }
   

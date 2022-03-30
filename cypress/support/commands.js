@@ -35,6 +35,33 @@ Cypress.Commands.add('SignIn',(phone ,password)=>{
         cy.get('#signInSubmit').click()
         })
 
+ Cypress.Commands.add('selectProd', () => { 
+    cy.get('a.a-link-normal').each(($e1,index,$list)=>{
+        if($e1.text().includes("WILDHORN® Carter Leather Wallet for Men (Black Croco)"))
+        {
+              cy.get('a.a-link-normal').eq(index).click()
+        } 
+      })
+    })
+
+Cypress.Commands.add('removeProd', () => { 
+    //cy.get('span.a-truncate-cut').should('be.visible')
+        cy.get('span.a-truncate-cut').each(($e1,index,$list)=>{
+            if($e1.text().includes("WILDHORN® Carter Leather Wallet for Men (Black Croco)"))
+             {
+                if(index==0)
+                {
+                    cy.get('input[value="Delete"]').eq(index).click({force:true})
+                }
+                else
+                {
+                    cy.get('input[value="Delete"]').eq(index-1).click({force:true})
+                }
+             } 
+             })  
+         })
+
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
