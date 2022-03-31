@@ -34,5 +34,6 @@ describe('Dashboard', function(){
 
         //radiobuttons
         cy.get('[value="radio2"]').check().should('be.checked')
+        
     })
 })

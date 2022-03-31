@@ -1,26 +1,28 @@
 
+import { should } from "chai"
 import Homep from "../../support/PageObjects/Homep.command"
 
 describe('Amazon', function(){
     const e = new Homep()
     
-    it('Login_Remove-from-cart', function(){
-    
+    it('Login_Create-a-wishlist', function(){
+        
         cy.visit('/')
         e.getSigninbox().click()
         cy.SignIn('9840756827','Amlan@420')//LOGIN
-    
-        cy.get('#nav-cart').click()
 
-        cy.get('body').should('include.text','Shopping Cart')
-        cy.url().should('include','cart')
+        e.getSigninbox().trigger('mouseover')
+        e.getwishlist().click({force: true})
 
-        cy.removeProd(); // Remove product from the cart
-        cy.get('body').should('include.text','was removed from Shopping Cart.')
+        cy.get('#a-popover-header-1').should('have.text','Create a new list')
+        cy.url().should('include','wishlist')
 
-        cy.get('#nav-hamburger-menu').click()
-        cy.get('.hmenu-item').contains('Sign Out').click()//SIGNOUT
-    })
-    
+        const uuid = () => Cypress._.random(0, 1e6) //genrating random number
+        const id = uuid()  
+        const test = `{backspace}test${id}`
+        cy.get('#list-name').type(test)
+        e.getformsubmit().contains('Create List').click({force: true})
+        cy.get("#profile-list-name").should('include.text',id)
+})
 })
 

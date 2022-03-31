@@ -29,5 +29,45 @@ class Homep
     {
         return  cy.get('[href="/gp/bestsellers/?ref_=nav_cs_bestsellers"]')
     }
+    getGiftcard()
+    {
+        return  cy.get('[href="/gift-card-store/b/?ie=UTF8&node=3704982031&ref_=nav_cs_gc"]')
+    }
+    getColleaguecard()
+    {
+        return  cy.get('img[src="https://images-eu.ssl-images-amazon.com/images/I/4157mnyJiKL.jpg"')
+    }
+    getCart()
+    {
+        return  cy.get('[href="/gp/cart/view.html?ref_=sw_gtc"]')
+    }
+    getLang()
+    {
+        return  cy.get('#icp-nav-flyout')
+    }
+    getRadiobtn()
+    {
+        return cy.get('input[type="radio"]')
+    }
+    getLangbtn()
+    {
+        return cy.get('#icp-save-button-announce')
+    }
+    getCountr()
+    {
+        return cy.get('#icp-flyout-mkt-change')
+    }
+    getSubmitbtn()
+    {
+        return cy.get('input[type="submit"]')
+    }
+    getwishlist()
+    {
+        return cy.get('[href="/hz/wishlist/ls?triggerElementID=createList&ref_=nav_ListFlyout_navFlyout_createList_lv_redirect"]')
+    }
+    getformsubmit()
+    {
+        return cy.get('#create-list-form > .a-form-actions')
+    }
 }
 export default Homep;

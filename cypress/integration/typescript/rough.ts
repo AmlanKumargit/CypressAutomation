@@ -64,7 +64,7 @@ it('Login_write-a-review',function()
         cy.url().should('include','thankyou')
         cy.get('#react-app').should('contain.text','Review submitted - Thank you!')
 
-    })
+        })
 
 
     it('Login_Add-new-address',function()
@@ -151,6 +151,112 @@ it('Login_write-a-review',function()
         cy.get('body').should('include.text','Added to Cart')
         cy.url().should('include','cart')
 
+    })
+
+    it('Login_Remove-from-cart', function(){
+    
+        cy.visit('/')
+        e.getSigninbox().click()
+        cy.SignIn('9840756827','Amlan@420')//LOGIN
+    
+        cy.get('#nav-cart').click()
+
+        cy.get('body').should('include.text','Shopping Cart')
+        cy.url().should('include','cart')
+
+        cy.removeProd(); // Remove product from the cart
+        cy.get('body').should('include.text','was removed from Shopping Cart.')
+
+        cy.get('#nav-hamburger-menu').click()
+        cy.get('.hmenu-item').contains('Sign Out').click()//SIGNOUT
+    })
+
+    it('Login_Add-gift-card', function(){
+    
+        cy.visit('/')
+        e.getSigninbox().click()
+        cy.SignIn('9840756827','Amlan@420')//LOGIN
+
+        e.getGiftcard().click()
+
+        cy.get('body').should('include.text','The Gift Cards Store')
+        cy.url().should('include','gift-card')
+
+        e.getColleaguecard().click()
+
+        cy.get('body').should('include.text','Amazon Pay eGift Card')
+        
+        cy.get('#gc-mini-picker-amount-1').click()//select amount
+        
+        //Compare if the products added match the number shown in the cart
+        var c1,c2,res;
+        cy.get('#nav-cart-count').then(($btn) => {
+        const count =$btn.text()
+        c1 = Number(count)      
+            }).then(function(){
+        cy.log('Initial products in the cart:' + c1)
+        })//before adding
+
+        cy.get('#gc-buy-box-atc').click()//add to cart
+
+        cy.get('body').should('include.text','Added to Cart')
+        cy.url().should('include','cart')
+
+        e.getCart().click()
+        
+        //Compare if the products added match the number shown in the cart
+        cy.get('#nav-cart-count').then(($btn) => {
+            const count =$btn.text()
+            c2 = Number(count)    
+            res=c2-c1
+            if(res==1)
+            {
+                cy.log("Products added to the carts match the quantity") 
+            }
+        }).then(function(){
+            cy.log('Total products:'+c2+' and '+'New products added:'+ res)
+        })//after adding 
+    
+        
+    })
+    
+
+   it('Login_Change-language-region', function(){
+        
+        cy.visit('/')
+        e.getLang().click()
+
+        cy.get('body').should('include.text','Language Settings')
+        cy.url().should('include','customer-preferences')
+
+        e.getRadiobtn().eq(1).check({force: true}).should('be.checked')
+        e.getLangbtn().should('have.text','परिवर्तन सहेजें')
+        e.getLangbtn().click({force: true}) //Change Language to Hindi and Save
+        
+        cy.get('body').should('not.include.text','Gift Cards')
+        cy.get('body').should('include.text','गिफ्ट कार्ड')
+
+        e.getLang().click()
+        e.getRadiobtn().eq(0).check({force: true}).should('be.checked')
+        e.getLangbtn().should('have.text','Save Changes')
+        e.getLangbtn().click({force: true})//Change Language back to English and Save
+
+        cy.get('body').should('not.include.text','गिफ्ट कार्ड')
+        cy.get('body').should('include.text','Gift Cards')
+
+        e.getLang().trigger('mouseover')
+        e.getCountr().click({force:true}) //Change country/region
+
+        cy.get('body').should('include.text','Select your preferred country/region website:')
+        cy.url().should('include','customer-preferences/country')
+
+        cy.get('select').eq(1).select('Brazil (Brasil)',{force: true})
+        cy.get('#icp-dropdown').should('have.value','https://www.amazon.com.br/')
+        
+        e.getSubmitbtn().eq(1).then(function(e1){
+            const url = e1.prop('value')
+            cy.visit(url)
+        })
     })
 
     **/
