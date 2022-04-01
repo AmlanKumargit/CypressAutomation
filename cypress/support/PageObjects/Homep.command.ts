@@ -69,5 +69,13 @@ class Homep
     {
         return cy.get('#create-list-form > .a-form-actions')
     }
+    getBabywishlist()
+    {
+        return cy.get('[href="/baby-reg/homepage?ref_=nav_ListFlyout_gno_listpop_br"]')
+    }
+    getTablenamecol()
+    {
+        return cy.get('tr td:nth-child(1)')
+    }
 }
 export default Homep;

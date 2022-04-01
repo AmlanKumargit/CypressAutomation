@@ -19,6 +19,21 @@ Cypress.Commands.add('selectProduct', (productName) => {
         }
     })
  })
+
+ Cypress.Commands.add('selectbabyProd', (babyproductName) => { 
+    cy.get('div.br-vv-item-card-box-item-detail-text').each(($e1, index, $list) => {
+            const text =$e1.text()
+            if(text.includes(babyproductName)) 
+            {
+                if(index==0){
+                cy.get('input[type="submit"]').eq(index+2).click({force: true})}
+                else{
+                cy.get('input[type="submit"]').eq((index*2)+2).click({force: true})}    
+                
+            }
+        })
+  })
+
  Cypress.Commands.add('LoginAPI',()=>{
      cy.request('POST',"https://rahulshettyacademy.com/client/auth/login",
          {"Username":"amlan", "Userpassword":"amlan123"}).then(function(response)
@@ -61,6 +76,7 @@ Cypress.Commands.add('removeProd', () => {
              })  
          })
 
+         
 
 //
 // -- This is a child command --

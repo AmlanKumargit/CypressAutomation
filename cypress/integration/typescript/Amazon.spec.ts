@@ -4,25 +4,51 @@ import Homep from "../../support/PageObjects/Homep.command"
 
 describe('Amazon', function(){
     const e = new Homep()
+
+    before('navigation', function(){
+
+        cy.fixture('example').then(function(data){
+
+            this.data=data
+        })
+        
+    })
     
-    it('Login_Create-a-wishlist', function(){
+    it('Login_Add-to-Baby-list', function(){
         
         cy.visit('/')
         e.getSigninbox().click()
         cy.SignIn('9840756827','Amlan@420')//LOGIN
 
         e.getSigninbox().trigger('mouseover')
-        e.getwishlist().click({force: true})
+        e.getBabywishlist().click({force: true})
 
-        cy.get('#a-popover-header-1').should('have.text','Create a new list')
-        cy.url().should('include','wishlist')
+        cy.get('#homepageSearchForm').then(function(ele){
+            const text = ele.text();
+            expect(text.includes('Find a Baby Wish List'));
+        })
+        
+        cy.url().should('include','baby-reg')
 
-        const uuid = () => Cypress._.random(0, 1e6) //genrating random number
-        const id = uuid()  
-        const test = `{backspace}test${id}`
-        cy.get('#list-name').type(test)
-        e.getformsubmit().contains('Create List').click({force: true})
-        cy.get("#profile-list-name").should('include.text',id)
-})
+        cy.get('#nameOrEmailField').type('Amlan')
+        cy.get('#search-submit-button').click()
+
+        cy.url().should('include','search-results')
+
+        e.getTablenamecol().each(($e1, index, $list)=>{
+            const text = $e1.text()
+            if(text.includes("Amlan Mishra"))
+            {
+                $e1.click()
+            }
+
+        })
+        cy.get('#br-registry-full-name').should('have.text','Amlan Mishra')
+
+        this.data.babyproductName.forEach(function(element){
+             cy.selectbabyProd(element) //Add baby products to cart
+        });
+        
+    })
 })
 
