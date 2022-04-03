@@ -18,7 +18,7 @@ describe('Amazon', function(){
         
         cy.visit('/')
         e.getSigninbox().click()
-        cy.SignIn('9840756827','Amlan@420')//LOGIN
+        cy.SignIn(this.data.number, this.data.password)//LOGIN
 
         e.getSigninbox().trigger('mouseover')
         e.getBabywishlist().click({force: true})
@@ -37,7 +37,7 @@ describe('Amazon', function(){
 
         e.getTablenamecol().each(($e1, index, $list)=>{
             const text = $e1.text()
-            if(text.includes("Amlan Mishra"))
+            if(text.includes(this.data.babyname))
             {
                 $e1.click()
             }

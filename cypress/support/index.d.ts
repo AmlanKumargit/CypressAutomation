@@ -12,6 +12,7 @@ declare namespace Cypress {
          selectProd(): Chainable<Element>
          removeProd(): Chainable<Element>
          selectbabyProd(babyproductName: string): Chainable <Element>
+         getOnePlus9Pro(): Chainable <Element>
       }
     }
   

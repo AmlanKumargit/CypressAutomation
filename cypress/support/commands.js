@@ -34,6 +34,16 @@ Cypress.Commands.add('selectProduct', (productName) => {
         })
   })
 
+  Cypress.Commands.add('getOnePlus9Pro', () => { 
+    cy.get('.s-suggestion').each(($e1,index,$list)=>
+        {
+            if($e1.text().includes('9 pro'))
+            {
+                $e1.click()
+            }
+        })
+  })
+
  Cypress.Commands.add('LoginAPI',()=>{
      cy.request('POST',"https://rahulshettyacademy.com/client/auth/login",
          {"Username":"amlan", "Userpassword":"amlan123"}).then(function(response)

@@ -77,5 +77,9 @@ class Homep
     {
         return cy.get('tr td:nth-child(1)')
     }
+    get4stars()
+    {
+        return cy.get(':nth-child(4) > .ryp__review-stars__star')
+    }
 }
 export default Homep;
