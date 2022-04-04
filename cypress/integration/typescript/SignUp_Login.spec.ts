@@ -11,7 +11,7 @@ describe('Amazon', function(){
         })
         
     })
-   /* it('Sign Up', function(){
+    it('Sign Up', function(){
         cy.visit('/')
         e.getSigninbox().trigger('mouseover')
         cy.contains('Start here.').click({force: true})
@@ -26,7 +26,7 @@ describe('Amazon', function(){
         
         cy.get('body').should('contain.text','Account created successfully')
         
-    })*/
+    })
 
     it('Login', function(){
         cy.visit('/')
