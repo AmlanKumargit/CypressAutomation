@@ -11,7 +11,7 @@ describe('Amazon', function(){
         })
         
     })
-    it('Login_Search-and-buy', function(){
+    it('Login_Search', function(){
     
         cy.visit('/')
         e.getSigninbox().click()
@@ -25,9 +25,26 @@ describe('Amazon', function(){
         cy.get('#twotabsearchtextbox').type('One plus')
         cy.getOnePlus9Pro()// Select One Plus 9 pro
         cy.get('#twotabsearchtextbox').should('have.value', 'one pluse9 pro')
+
+        //SelectProduct
+        e.getOnePlus().each(($e1,index,$list)=>{
+            if($e1.text().includes(this.data.phone))
+            {
+                e.getOnePlus().eq(index).invoke('removeAttr','target').click()
+            } 
+          })
+
+          cy.get('#productTitle').then(function(ele){
+              if(ele.text().includes(this.data.phone))
+              {
+                  cy.log('Product successfully selected')
+              }
+              else
+              {
+                cy.log('Product not selected')
+              }
+          })
     
-        //Select a Product
-      //cy.get('[data-asin="B089MS8SKL"] > :nth-child(1) > .s-widget-container > .s-card-container > :nth-child(1) > :nth-child(1) > .s-list-col-left > .sg-col-inner > .s-product-image-container > :nth-child(1) > .rush-component > .a-link-normal > .a-section > .s-image').invoke('removeAttr','target').click()
     })
 
 })

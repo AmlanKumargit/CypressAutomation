@@ -45,7 +45,7 @@ describe('Amazon', function(){
         cy.url().should('include','AddressSucceed') 
 
         cy.get('#ya-myab-address-delete-btn-0').click()
-        cy.window().focus().click({force: true})
+        cy.window().click({force: true})
         cy.get('#ya-myab-address-delete-btn-0').click()
         cy.get('input[type="submit"]').click() 
 

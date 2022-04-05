@@ -81,5 +81,9 @@ class Homep
     {
         return cy.get(':nth-child(4) > .ryp__review-stars__star')
     }
+    getOnePlus()
+    {
+        return cy.get('h2.a-size-mini.a-spacing-none.a-color-base.s-line-clamp-2 > a.a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal')
+    }
 }
 export default Homep;
