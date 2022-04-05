@@ -28,5 +28,8 @@
     "multiple-cucumber-html-reporter": "^1.19.0",
     "neat-csv": "5.1.0",
     "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "prettier": "^2.6.2"
   }
 }

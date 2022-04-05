@@ -1,20 +1,18 @@
 {
-
-    "requestTimeout": 500000, 
-    "numTestsKeptInMemory": 10, 
-    "responseTimeout": 500000,
-    "pageLoadTimeout": 500000, 
-    "baseUrl": "http://amazon.in/", 
-    "chromeWebSecurity": false,
-    "watchForFileChanges": true, 
-    "reporter": "mochawesome",
-    "viewportHeight": 1259, 
-    "viewportWidth": 1200,
-    "defaultCommandTimeout": 8000,
-    "env":
-        {
-            "url": "https://rahulshettyacademy.com/angularpractice/"
-        },  
-    "testFiles": "**/*.*",
-    "projectId": "dpy2t7"
+  "requestTimeout": 500000,
+  "numTestsKeptInMemory": 10,
+  "responseTimeout": 500000,
+  "pageLoadTimeout": 500000,
+  "baseUrl": "http://amazon.in/",
+  "chromeWebSecurity": false,
+  "watchForFileChanges": true,
+  "reporter": "mochawesome",
+  "viewportHeight": 1259,
+  "viewportWidth": 1200,
+  "defaultCommandTimeout": 8000,
+  "env": {
+    "url": "https://rahulshettyacademy.com/angularpractice/"
+  },
+  "testFiles": "**/*.*",
+  "projectId": "dpy2t7"
 }
