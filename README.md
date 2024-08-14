@@ -1,2 +1,2 @@
 # slaprepo
-Repository for demoCypress
+Cypress Automation Script
