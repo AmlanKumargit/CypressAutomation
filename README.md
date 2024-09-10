@@ -1,2 +1,2 @@
 # slaprepo
-Cypress Automation Script
+Cypress Automation Script for an E-Commerce Website
